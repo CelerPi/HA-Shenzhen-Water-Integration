@@ -1,0 +1,77 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "深圳水务",
+        "description": "配置深圳水务集团网上营业厅账单查询。若不填写 token/guid，提交后会向手机号发送短信验证码。",
+        "data": {
+          "base_url": "接口地址",
+          "mobile": "手机号 / OpenId",
+          "customer_codes": "水务用户编码，多个用逗号分隔",
+          "tenant_id": "TenantId",
+          "channel": "渠道",
+          "token": "Utoken，可选",
+          "guid": "guid，可选"
+        }
+      },
+      "sms": {
+        "title": "短信验证",
+        "description": "请输入深圳水务发送到手机的短信验证码。",
+        "data": {
+          "validation_code": "短信验证码"
+        }
+      }
+    },
+    "error": {
+      "invalid_customer_codes": "请填写至少一个水务用户编码。",
+      "send_code_failed": "短信验证码发送失败。",
+      "login_failed": "登录失败，请检查短信验证码。"
+    },
+    "abort": {
+      "already_configured": "该水务用户编码已经配置。"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "latest_bill": {
+        "name": "账单"
+      },
+      "total_amount": {
+        "name": "本期总金额"
+      },
+      "water_amount": {
+        "name": "水费"
+      },
+      "sewage_amount": {
+        "name": "污水费"
+      },
+      "garbage_amount": {
+        "name": "垃圾处理费"
+      },
+      "need_pay": {
+        "name": "待支付金额"
+      },
+      "water_consumption": {
+        "name": "本期用水量"
+      },
+      "payment_status": {
+        "name": "缴费状态"
+      },
+      "due_date": {
+        "name": "缴费截止日"
+      },
+      "meter_current_reading": {
+        "name": "本期表码"
+      },
+      "meter_previous_reading": {
+        "name": "上期表码"
+      },
+      "meter_current_date": {
+        "name": "本期抄表日期"
+      },
+      "meter_previous_date": {
+        "name": "上期抄表日期"
+      }
+    }
+  }
+}

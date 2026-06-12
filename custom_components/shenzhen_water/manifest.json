@@ -1,0 +1,14 @@
+{
+  "domain": "shenzhen_water",
+  "name": "Shenzhen Water",
+  "codeowners": [],
+  "config_flow": true,
+  "documentation": "https://github.com/CelerPi/HA-Shenzhen-Water-Integration",
+  "issue_tracker": "https://github.com/CelerPi/HA-Shenzhen-Water-Integration/issues",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "requirements": [
+    "pycryptodome==3.20.0"
+  ],
+  "version": "0.1.0"
+}

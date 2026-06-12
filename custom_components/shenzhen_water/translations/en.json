@@ -1,0 +1,77 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Shenzhen Water",
+        "description": "Configure Shenzhen Water online hall bill lookup. If token/guid are empty, an SMS verification code will be sent.",
+        "data": {
+          "base_url": "API base URL",
+          "mobile": "Mobile / OpenId",
+          "customer_codes": "Water customer codes, comma separated",
+          "tenant_id": "TenantId",
+          "channel": "Channel",
+          "token": "Utoken, optional",
+          "guid": "guid, optional"
+        }
+      },
+      "sms": {
+        "title": "SMS verification",
+        "description": "Enter the SMS code sent by Shenzhen Water.",
+        "data": {
+          "validation_code": "SMS code"
+        }
+      }
+    },
+    "error": {
+      "invalid_customer_codes": "Enter at least one water customer code.",
+      "send_code_failed": "Could not send SMS code.",
+      "login_failed": "Login failed. Check the SMS code."
+    },
+    "abort": {
+      "already_configured": "This water customer code is already configured."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "latest_bill": {
+        "name": "Bill"
+      },
+      "total_amount": {
+        "name": "Total amount"
+      },
+      "water_amount": {
+        "name": "Water fee"
+      },
+      "sewage_amount": {
+        "name": "Sewage fee"
+      },
+      "garbage_amount": {
+        "name": "Garbage fee"
+      },
+      "need_pay": {
+        "name": "Amount due"
+      },
+      "water_consumption": {
+        "name": "Water consumption"
+      },
+      "payment_status": {
+        "name": "Payment status"
+      },
+      "due_date": {
+        "name": "Due date"
+      },
+      "meter_current_reading": {
+        "name": "Current meter reading"
+      },
+      "meter_previous_reading": {
+        "name": "Previous meter reading"
+      },
+      "meter_current_date": {
+        "name": "Current reading date"
+      },
+      "meter_previous_date": {
+        "name": "Previous reading date"
+      }
+    }
+  }
+}

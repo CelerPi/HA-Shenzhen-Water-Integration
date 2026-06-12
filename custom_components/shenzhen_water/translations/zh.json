@@ -1,0 +1,34 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "深圳水務",
+        "description": "配置深圳水務集團網上營業廳賬單查詢。若不填寫 token/guid，提交後會向手機號發送短信驗證碼。",
+        "data": {
+          "base_url": "接口地址",
+          "mobile": "手機號 / OpenId",
+          "customer_codes": "水務用戶編碼，多個用逗號分隔",
+          "tenant_id": "TenantId",
+          "channel": "渠道",
+          "token": "Utoken，可選",
+          "guid": "guid，可選"
+        }
+      },
+      "sms": {
+        "title": "短信驗證",
+        "description": "請輸入深圳水務發送到手機的短信驗證碼。",
+        "data": {
+          "validation_code": "短信驗證碼"
+        }
+      }
+    },
+    "error": {
+      "invalid_customer_codes": "請填寫至少一個水務用戶編碼。",
+      "send_code_failed": "短信驗證碼發送失敗。",
+      "login_failed": "登入失敗，請檢查短信驗證碼。"
+    },
+    "abort": {
+      "already_configured": "該水務用戶編碼已經配置。"
+    }
+  }
+}
