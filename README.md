@@ -1,8 +1,10 @@
 # 深圳水务接入 Home Assistant
 
-![version](https://img.shields.io/badge/version-v0.1.0-blue)
+![version](https://img.shields.io/badge/version-v0.1.1-blue)
 
 这是基于深圳水务集团网上营业厅网页接口实现的 Home Assistant 自定义集成。
+
+> **第一次配置前请先看：** [如何获取深圳水务配置字段](docs/packet-capture.md)。教程里写了推荐短信登录流程、抓包获取 `Utoken/guid`、验证脚本和脱敏注意事项。
 
 已还原的调用链：
 
@@ -26,6 +28,8 @@
 ## 配置
 
 首次配置需要填写：
+
+详细配置和抓包说明见：[如何获取深圳水务配置字段](docs/packet-capture.md)。
 
 - `手机号 / OpenId`：深圳水务网上营业厅登录手机号。
 - `水务用户编码`：水费户号/用户编码，多个可用逗号分隔。

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1 - 2026-06-13
+
+- Show the integration name in Chinese.
+- Add a detailed configuration and packet capture guide.
+
 ## 0.1.0 - 2026-06-13
 
 - Add Shenzhen Water custom integration.

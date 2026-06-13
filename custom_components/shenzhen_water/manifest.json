@@ -1,6 +1,6 @@
 {
   "domain": "shenzhen_water",
-  "name": "Shenzhen Water",
+  "name": "深圳水务",
   "codeowners": [],
   "config_flow": true,
   "documentation": "https://github.com/CelerPi/HA-Shenzhen-Water-Integration",
@@ -10,5 +10,5 @@
   "requirements": [
     "pycryptodome==3.20.0"
   ],
-  "version": "0.1.0"
+  "version": "0.1.1"
 }
