@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2 - 2026-06-14
+
+- Fix the water consumption sensor state class for Home Assistant compatibility.
+
 ## 0.1.1 - 2026-06-13
 
 - Show the integration name in Chinese.

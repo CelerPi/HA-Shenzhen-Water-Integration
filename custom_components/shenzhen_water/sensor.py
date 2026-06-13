@@ -75,7 +75,7 @@ SENSORS: tuple[ShenzhenWaterSensorEntityDescription, ...] = (
         translation_key="water_consumption",
         native_unit_of_measurement=UNIT_CUBIC_METERS,
         device_class=SensorDeviceClass.WATER,
-        state_class=SensorStateClass.MEASUREMENT,
+        state_class=SensorStateClass.TOTAL,
         value_fn=lambda data: data.latest_bill.water_consumption if data.latest_bill else None,
     ),
     ShenzhenWaterSensorEntityDescription(
