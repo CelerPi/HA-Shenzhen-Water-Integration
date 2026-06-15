@@ -1,6 +1,6 @@
 # 深圳水务接入 Home Assistant
 
-![version](https://img.shields.io/badge/version-v0.1.2-blue)
+![version](https://img.shields.io/badge/version-v0.1.3-blue)
 
 这是基于深圳水务集团网上营业厅网页接口实现的 Home Assistant 自定义集成。
 

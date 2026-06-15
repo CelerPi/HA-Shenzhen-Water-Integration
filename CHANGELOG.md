@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.3 - 2026-06-15
+
+- Fix repository metadata and manifest ordering for HACS and Hassfest validation.
+
 ## 0.1.2 - 2026-06-14
 
 - Fix the water consumption sensor state class for Home Assistant compatibility.
