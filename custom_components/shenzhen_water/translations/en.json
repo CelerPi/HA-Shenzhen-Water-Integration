@@ -20,6 +20,10 @@
         "data": {
           "validation_code": "SMS code"
         }
+      },
+      "reauth_confirm": {
+        "title": "Reauthenticate Shenzhen Water",
+        "description": "The login credentials have expired. Submit to send an SMS code to the configured mobile number."
       }
     },
     "error": {
@@ -28,7 +32,8 @@
       "login_failed": "Login failed. Check the SMS code."
     },
     "abort": {
-      "already_configured": "This water customer code is already configured."
+      "already_configured": "This water customer code is already configured.",
+      "reauth_successful": "Reauthentication was successful."
     }
   },
   "entity": {

@@ -20,6 +20,10 @@
         "data": {
           "validation_code": "短信验证码"
         }
+      },
+      "reauth_confirm": {
+        "title": "重新认证深圳水务",
+        "description": "登录凭据已失效。提交后将向已配置手机号发送短信验证码。"
       }
     },
     "error": {
@@ -28,7 +32,8 @@
       "login_failed": "登录失败，请检查短信验证码。"
     },
     "abort": {
-      "already_configured": "该水务用户编码已经配置。"
+      "already_configured": "该水务用户编码已经配置。",
+      "reauth_successful": "重新认证成功。"
     }
   },
   "entity": {

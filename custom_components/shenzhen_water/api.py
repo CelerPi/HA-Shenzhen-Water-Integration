@@ -112,7 +112,7 @@ class ShenzhenWaterApiClient:
 
     async def async_fetch(self) -> ShenzhenWaterData:
         if not self._token or not self._guid:
-            raise ShenzhenWaterApiError("Missing token/guid; reconfigure and log in again")
+            raise ShenzhenWaterAuthError("Missing token/guid; reauthentication required")
 
         response = await self._invoke(
             "op/BillInfo/GetLatestBillDetails2V30",

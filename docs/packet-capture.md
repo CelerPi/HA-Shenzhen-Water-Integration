@@ -288,7 +288,7 @@ node scripts/sz-water.js latest-bill
 - 确认 `customer_codes` 是水务用户编码，不是手机号。
 - 如果有多个户号，先只填一个确认可用。
 - 在深圳水务网页端确认该用户编码能看到最新账单。
-- 如果 token 过期，删除集成后重新添加，或重新获取 `token/guid`。
+- 如果 token 过期，打开 Home Assistant 的修复项，按提示发送并输入短信验证码；集成会自动更新 `token/guid`。
 
 ### 抓包看不到明文请求体
 

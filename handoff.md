@@ -129,10 +129,12 @@ custom_components/shenzhen_water/config_flow.py
 4. 调用 `LoginV20` 获取 `token/guid`。
 5. 保存配置并创建实体。
 
-已知限制：
+重新认证：
 
-- 当前版本没有实现 options flow 或 reauth flow。
-- 如果 `token` 过期，需要删除并重新添加集成，或后续补 reauth 逻辑。
+- API 收到 HTTP 401/403 或业务错误码 `9999904` 时，会触发 Home Assistant 重新认证修复项。
+- 重新认证会向原配置手机号发送短信验证码，并用登录结果更新原配置项的 `token/guid`。
+- 原设备和实体保持不变，不需要删除集成。
+- 当前版本仍未实现 options flow。
 
 ## 刷新策略
 
@@ -280,4 +282,3 @@ https://github.com/CelerPi/HA-Shenzhen-Water-Integration
 
 - `documentation`
 - `issue_tracker`
-
