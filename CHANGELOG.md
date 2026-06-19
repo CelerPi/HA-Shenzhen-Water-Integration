@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.4 - 2026-06-19
+
+- Detect expired or rejected Utoken credentials.
+- Add an SMS reauthentication flow that refreshes token/guid without recreating entities.
+
 ## 0.1.3 - 2026-06-15
 
 - Fix repository metadata and manifest ordering for HACS and Hassfest validation.

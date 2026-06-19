@@ -12,6 +12,10 @@ class ShenzhenWaterApiError(Exception):
     """Raised when Shenzhen Water cannot return usable data."""
 
 
+class ShenzhenWaterAuthError(ShenzhenWaterApiError):
+    """Raised when Shenzhen Water credentials are no longer valid."""
+
+
 @dataclass(frozen=True)
 class ShenzhenWaterBill:
     bill_month: str | None = None
@@ -164,6 +168,8 @@ class ShenzhenWaterApiClient:
                 timeout=30,
             ) as response:
                 text = await response.text()
+                if response.status in (401, 403):
+                    raise ShenzhenWaterAuthError(f"HTTP {response.status}: {text}")
                 if response.status >= 400:
                     raise ShenzhenWaterApiError(f"HTTP {response.status}: {text}")
                 response_header = response.headers.get("04A52C9F")
@@ -180,6 +186,8 @@ class ShenzhenWaterApiClient:
             raise ShenzhenWaterApiError("Could not decrypt response") from err
         if not isinstance(data, dict):
             raise ShenzhenWaterApiError("Response JSON is not an object")
+        if include_token and str(data.get("code")) == "9999904":
+            raise ShenzhenWaterAuthError(data.get("message") or "Authentication expired")
         return data
 
 

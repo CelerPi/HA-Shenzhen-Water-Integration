@@ -76,6 +76,11 @@ class ShenzhenWaterConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             except ShenzhenWaterApiError:
                 errors["base"] = "login_failed"
             else:
+                if self.source == config_entries.SOURCE_REAUTH:
+                    return self.async_update_reload_and_abort(
+                        self._get_reauth_entry(),
+                        data_updates={CONF_TOKEN: token, CONF_GUID: guid},
+                    )
                 data = {**self._pending_data, CONF_TOKEN: token, CONF_GUID: guid}
                 return self.async_create_entry(
                     title=f"深圳水务 {data[CONF_CUSTOMER_CODES][0]}",
@@ -85,6 +90,32 @@ class ShenzhenWaterConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         return self.async_show_form(
             step_id="sms",
             data_schema=vol.Schema({vol.Required("validation_code"): str}),
+            errors=errors,
+        )
+
+    async def async_step_reauth(
+        self,
+        entry_data: dict[str, Any],
+    ) -> config_entries.ConfigFlowResult:
+        return await self.async_step_reauth_confirm()
+
+    async def async_step_reauth_confirm(
+        self,
+        user_input: dict[str, Any] | None = None,
+    ) -> config_entries.ConfigFlowResult:
+        errors: dict[str, str] = {}
+        if user_input is not None:
+            self._pending_data = dict(self._get_reauth_entry().data)
+            try:
+                await self._client(self._pending_data).async_send_validation_code()
+            except ShenzhenWaterApiError:
+                errors["base"] = "send_code_failed"
+            else:
+                return await self.async_step_sms()
+
+        return self.async_show_form(
+            step_id="reauth_confirm",
+            data_schema=vol.Schema({}),
             errors=errors,
         )
 

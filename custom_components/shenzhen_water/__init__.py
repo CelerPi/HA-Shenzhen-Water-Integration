@@ -6,10 +6,15 @@ import logging
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant
+from homeassistant.exceptions import ConfigEntryAuthFailed
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 
-from .api import ShenzhenWaterApiClient, ShenzhenWaterApiError
+from .api import (
+    ShenzhenWaterApiClient,
+    ShenzhenWaterApiError,
+    ShenzhenWaterAuthError,
+)
 from .const import (
     CONF_BASE_URL,
     CONF_CHANNEL,
@@ -45,6 +50,8 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     async def async_update_data():
         try:
             return await client.async_fetch()
+        except ShenzhenWaterAuthError as err:
+            raise ConfigEntryAuthFailed(str(err)) from err
         except ShenzhenWaterApiError as err:
             raise UpdateFailed(str(err)) from err
 

@@ -1,6 +1,6 @@
 # 深圳水务接入 Home Assistant
 
-![version](https://img.shields.io/badge/version-v0.1.3-blue)
+![version](https://img.shields.io/badge/version-v0.1.4-blue)
 
 这是基于深圳水务集团网上营业厅网页接口实现的 Home Assistant 自定义集成。
 
@@ -39,6 +39,8 @@
 如果不填写 `Utoken` 和 `guid`，集成会先发送短信验证码，并在下一步让你输入验证码完成登录。
 
 如果你已经从网页抓包或脚本里拿到了有效 `Utoken/guid`，也可以直接填入，跳过短信登录步骤。
+
+当 `Utoken` 过期时，Home Assistant 会创建重新认证修复项。按提示发送并输入短信验证码后，集成会更新原配置项里的 `Utoken/guid`，已有设备和实体保持不变。
 
 ## 当前实体
 
